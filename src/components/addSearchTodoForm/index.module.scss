@@ -1,0 +1,39 @@
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+
+.formContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchInputWrapper {
+  width: 40% !important;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submitBtn {
+  width: 100px;
+  border: 1px solid $gray;
+  border-radius: 3px;
+  height: 40px;
+  background: none;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  &:hover {
+    background-color: $secondary;
+    border: none;
+  }
+}
+
+.form__group {
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}

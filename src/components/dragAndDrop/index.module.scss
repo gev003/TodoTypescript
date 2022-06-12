@@ -1,0 +1,49 @@
+.column {
+  width: 30%;
+}
+
+.droppableCol {
+  width: 100%;
+  background-color: gray;
+  padding: 10px 10px 0 10px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  min-height: 50px;
+  margin-top: 10px;
+}
+
+.item {
+  margin-bottom: 10px;
+  background-color: gray;
+  color: white;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+.item.dragging {
+  background-color: coral;
+}
+
+.dragAndDropContainer {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.description {
+  font-size: 14px;
+  word-break: break-all;
+  white-space: normal;
+}
+
+.icon {
+  height: 16px;
+  cursor: pointer;
+}
