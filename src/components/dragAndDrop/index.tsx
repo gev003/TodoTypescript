@@ -11,7 +11,7 @@ type IProps = {
   handleDragEnd: any;
   deleteTodoItem: (key: string, id: string) => void;
   searchTodoData: null | ITodoList;
-  editTodoItem: (key: any, el: any) => void;
+  editTodoItem: (key: any, el: any, index: number) => void;
 };
 
 const TodoItemsList = ({
@@ -48,7 +48,7 @@ const TodoItemsList = ({
                         <p className={styles.title}>{el.name}</p>
                         <p className={styles.description}>{el.description}</p>
                         <EditingIcon
-                          onClick={() => editTodoItem(key, el)}
+                          onClick={() => editTodoItem(key, el, index)}
                           className={styles.icon}
                         />
                         <DeleteIconSvg

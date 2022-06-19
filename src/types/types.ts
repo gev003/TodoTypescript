@@ -15,6 +15,7 @@ export type ITodoList = {
 export type IEditableData = {
   origin: any;
   element: ITodoItem;
+  index: number;
 };
 
 export type IAddTodoItem = Pick<ITodoItem, "name" | "description">;

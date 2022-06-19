@@ -10,6 +10,7 @@ import {
 import TodoForm from "./components/addSearchTodoForm";
 import initialTodoList from "./initialData";
 import TodoItemsList from "./components/dragAndDrop";
+import replaceItemOfArray from "./helpers/replaceItemOfArray";
 
 function App() {
   const [todoList, setTodoList] = useState<ITodoList>(() => {
@@ -17,8 +18,7 @@ function App() {
     return todoDataFromLS ? JSON.parse(todoDataFromLS) : initialTodoList;
   });
   const [searchTodoData, setSearchTodoData] = useState<null | ITodoList>(null);
-  //There is a case when edit btn is clicked and you can drag it. I can sbe solved with editing state but I hav no time.
-  //And another bug also - after clicking edit it puts the position to the end. It can be fixed with finding position with Array.findIndex() and splicing the array
+  // There is a case when edit btn is clicked and you can drag it. It can be solved with editing state.
   // const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editableData, setEditableData] = useState<null | IEditableData>(null);
 
@@ -33,6 +33,7 @@ function App() {
           const {
             origin,
             element: { id },
+            index,
           } = editableData;
           const { name, description } = inputValues;
           const foundedItem = todoList[origin].items.find(
@@ -51,12 +52,11 @@ function App() {
             ...prev,
             [origin]: {
               ...todoList[origin],
-              items: [
-                ...todoList[origin].items.filter(
-                  (todo: ITodoItem) => todo.id !== id
-                ),
-                foundedItem,
-              ],
+              items: replaceItemOfArray(
+                todoList[origin].items,
+                index,
+                foundedItem
+              ),
             },
           };
         } else {
@@ -152,9 +152,12 @@ function App() {
     [todoList]
   );
 
-  const editTodoItem = useCallback((key: string, element: ITodoItem) => {
-    setEditableData({ origin: key, element });
-  }, []);
+  const editTodoItem = useCallback(
+    (key: string, element: ITodoItem, index: number) => {
+      setEditableData({ origin: key, element, index });
+    },
+    []
+  );
 
   return (
     <div className="App">
