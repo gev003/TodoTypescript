@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
-import "./App.css";
+import { useCallback, useEffect, useState } from "react";
 import { v4 } from "uuid";
 import {
   IAddTodoItem,
@@ -7,6 +6,7 @@ import {
   ITodoItem,
   ITodoList,
 } from "./types/types";
+import "./assets/styles/root.scss";
 import TodoForm from "./components/addSearchTodoForm";
 import initialTodoList from "./initialData";
 import TodoItemsList from "./components/dragAndDrop";

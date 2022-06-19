@@ -1,3 +1,5 @@
+@import "/src/assets/styles/mixins.scss";
+
 $primary: #11998e;
 $secondary: #38ef7d;
 $white: #fff;
@@ -13,7 +15,7 @@ $gray: #9b9b9b;
   font-family: inherit;
   width: 100%;
   border: 0;
-  border-bottom: 2px solid $gray;
+  border-bottom: 2px solid $kakraz;
   outline: 0;
   font-size: 1rem;
   color: $gray;

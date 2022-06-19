@@ -1,0 +1,16 @@
+$durable: "1080px";
+$kakraz: yellow;
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin displayGrid($vandam) {
+  @media screen and (max-width: $durable) {
+    @content;
+    width: $vandam;
+  }
+}

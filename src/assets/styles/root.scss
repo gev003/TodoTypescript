@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -7,11 +17,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 #root {
   height: 100vh;
+}
+
+:root {
+  --main: #f15a24;
+  --secondary: #29abe2;
+  --secondary: #29abe2;
+  --dark: #5c5d60;
+  --bgDark: rgb(44, 18, 18);
+  --bg: #f9dec642;
+  --white: #eeeeee;
 }
