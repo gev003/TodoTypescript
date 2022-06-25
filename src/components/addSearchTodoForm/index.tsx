@@ -1,5 +1,6 @@
 import classNames from "classnames";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import debounceInput from "../../helpers/debounceInput";
 import { IAddTodoItem } from "../../types/types";
 import DrawInput from "../drawInputWithLabel";
 import styles from "./index.module.scss";
@@ -29,7 +30,6 @@ const TodoForm = ({
   };
 
   const setSearchData = (value: string) => {
-    setSearchValue(value);
     filterAndSetSearchData(value);
   };
 
@@ -45,6 +45,11 @@ const TodoForm = ({
       setDescription("");
     }
   }, [editableData]);
+
+  const debounceValue = useCallback(
+    debounceInput(setSearchData, setSearchValue),
+    []
+  );
 
   return (
     <div className={styles.formContainer}>
@@ -71,7 +76,7 @@ const TodoForm = ({
 
       <div className={styles.searchInputWrapper}>
         <DrawInput
-          onChangeHandler={setSearchData}
+          onChangeHandler={debounceValue}
           name="search"
           value={searchValue}
         />
